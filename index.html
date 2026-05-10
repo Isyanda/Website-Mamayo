@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMAYO – Aneka Risol Enak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+
+<!-- ═══════════════════════════════════════
+  SCREEN: HOME / PROFIL MAMAYO
+═══════════════════════════════════════ -->
+<div id="s-home" class="screen active">
+  <div class="scroll-body">
+    <!-- Hero -->
+    <div class="home-hero">
+      <div class="hero-header">
+        <div>
+          <div class="hero-brand">MA<span>MAYO</span></div>
+          <div class="hero-tagline">Aneka Risol Enak & Kue Basah</div>
+        </div>
+        <button class="hero-settings-btn" onclick="go('s-profil-user')">⚙ Pengaturan</button>
+      </div>
+      <div class="hero-body">
+        <img src="toko.png" alt="Toko Mamayo" class="hero-photo">
+        <div class="hero-info">
+          <div class="hero-desc">Mamayo adalah usaha kuliner yang bergerak di bidang penjualan makanan ringan, khususnya aneka risol. Produk yang ditawarkan meliputi risol mentai, mayo, beef, piscok, dan lainnya dengan harga mulai Rp 2.000/buah.</div>
+          <div class="hero-contact">📞 081234567876</div>
+          <div class="hero-hours">🕐 Senin–Sabtu &nbsp;09:00 – 16:00</div>
+        </div>
+      </div>
+      <div class="hero-footer">
+        <div class="status-pill"><div class="dot"></div> Toko Sedang Buka</div>
+        <button class="maps-btn" onclick="toast('Membuka Maps…')">📍 MAPS</button>
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="section-header">
+      <div>
+        <div class="section-title">Menu Kami</div>
+        <div class="section-sub">Harga mulai Rp 2.000/buah</div>
+      </div>
+    </div>
+    <div class="menu-grid-2col">
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Mentai</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Mayo</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🌶️</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Mercon</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Reguler</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🥩</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Beef</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+      <div class="menu-card" onclick="goOrder()">
+        <div class="menu-card-img">🍫</div>
+        <div class="menu-card-body">
+          <div class="menu-card-name">Risol Piscok</div>
+          <div class="menu-card-price">Rp 2.000</div>
+          <div class="menu-card-status"><span class="badge badge-green">Tersedia</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="beli-sekarang-bar">
+      <button class="btn btn-primary btn-lg" onclick="goOrder()">🛒 BELI SEKARANG</button>
+    </div>
+  </div>
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <button class="bn-item active" onclick="go('s-home')"><span class="bn-icon">🏠</span>Beranda</button>
+    <button class="bn-item" onclick="goOrder()"><span class="bn-icon">🛒</span>Pesan</button>
+    <button class="bn-item" onclick="go('s-profil-user')"><span class="bn-icon">👤</span>Profil</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: DAFTAR
+═══════════════════════════════════════ -->
+<div id="s-daftar" class="screen">
+  <div class="auth-screen-body">
+    <div class="auth-logo">MA<span style="color:var(--orange)">MAYO</span></div>
+    <div class="auth-subtitle">Buat akun untuk mulai memesan 🥟</div>
+    <div style="font-size:22px;font-weight:900;font-family:'Fraunces',serif;margin-bottom:20px;">Daftar</div>
+    <div class="form-group">
+      <label class="form-label">Nama Lengkap</label>
+      <div class="input-wrap">
+        <span class="input-prefix">👤</span>
+        <input type="text" class="form-input" placeholder="Nama Lengkap">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <div class="input-wrap">
+        <span class="input-prefix">✉️</span>
+        <input type="email" class="form-input" placeholder="email@contoh.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <div class="input-wrap">
+        <span class="input-prefix">🔒</span>
+        <input type="password" class="form-input" placeholder="••••••••">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">OTP</label>
+      <div class="input-wrap">
+        <span class="input-prefix">📱</span>
+        <input type="text" class="form-input" placeholder="Kode OTP">
+      </div>
+    </div>
+    <button class="btn btn-primary btn-lg" onclick="toast('Akun berhasil didaftarkan! 🎉'); go('s-masuk')">Daftarkan Akun</button>
+    <div class="auth-switch mt-16">Sudah punya akun? <a onclick="go('s-masuk')">Login di sini</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: MASUK
+═══════════════════════════════════════ -->
+<div id="s-masuk" class="screen">
+  <div class="auth-screen-body">
+    <div class="auth-logo">MA<span style="color:var(--orange)">MAYO</span></div>
+    <div class="auth-subtitle">Selamat datang kembali 👋</div>
+    <div style="font-size:22px;font-weight:900;font-family:'Fraunces',serif;margin-bottom:20px;">Masuk</div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <div class="input-wrap">
+        <span class="input-prefix">✉️</span>
+        <input type="email" class="form-input" placeholder="email@contoh.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <div class="input-wrap">
+        <span class="input-prefix">🔒</span>
+        <input type="password" class="form-input" placeholder="••••••••">
+      </div>
+    </div>
+    <div class="remember-row">
+      <div class="checkbox checked" id="rememberCb" onclick="this.classList.toggle('checked')">✓</div>
+      <span>Ingat Saya</span>
+    </div>
+    <button class="btn btn-primary btn-lg" onclick="toast('Login berhasil! 👋'); go('s-home')">Masuk</button>
+    <div class="divider-or">Atau</div>
+    <div class="forgot-link" onclick="toast('Link reset password dikirim ke email')">Lupa Password?</div>
+    <div class="auth-switch">Belum punya akun? <a onclick="go('s-daftar')">Daftar di Sini</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: PEMESANAN
+═══════════════════════════════════════ -->
+<div id="s-order" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-home')">←</button>
+    <div class="topbar-title">Pemesanan</div>
+    <div class="topbar-icon">🛒</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom: 80px;">
+    <div class="order-product-list">
+      <div class="order-row">
+        <div class="order-row-img">🥟</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Mentai</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(0,-1)">−</button>
+          <span class="qty-num" id="q0">0</span>
+          <button class="qty-btn" onclick="updateQty(0,1)">+</button>
+        </div>
+      </div>
+      <div class="order-row">
+        <div class="order-row-img">🥟</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Mayo</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(1,-1)">−</button>
+          <span class="qty-num" id="q1">0</span>
+          <button class="qty-btn" onclick="updateQty(1,1)">+</button>
+        </div>
+      </div>
+      <div class="order-row">
+        <div class="order-row-img">🌶️</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Mercon</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(2,-1)">−</button>
+          <span class="qty-num" id="q2">0</span>
+          <button class="qty-btn" onclick="updateQty(2,1)">+</button>
+        </div>
+      </div>
+      <div class="order-row">
+        <div class="order-row-img">🥟</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Reguler</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(3,-1)">−</button>
+          <span class="qty-num" id="q3">0</span>
+          <button class="qty-btn" onclick="updateQty(3,1)">+</button>
+        </div>
+      </div>
+      <div class="order-row">
+        <div class="order-row-img">🥩</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Beef</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(4,-1)">−</button>
+          <span class="qty-num" id="q4">0</span>
+          <button class="qty-btn" onclick="updateQty(4,1)">+</button>
+        </div>
+      </div>
+      <div class="order-row">
+        <div class="order-row-img">🍫</div>
+        <div style="flex:1">
+          <div class="order-row-name">Risol Piscok</div>
+          <div class="order-row-price">Rp 2.000 / buah</div>
+        </div>
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateQty(5,-1)">−</button>
+          <span class="qty-num" id="q5">0</span>
+          <button class="qty-btn" onclick="updateQty(5,1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-summary-box">
+      <div class="osb-title">Pesanan Anda</div>
+      <div class="osb-row"><span>Atas Nama</span><span class="fw-900">User</span></div>
+      <div id="order-detail-lines"></div>
+      <div class="osb-row osb-total"><span>Total Pesanan</span><span id="order-total-disp">Rp 0</span></div>
+    </div>
+
+    <div class="section-pad">
+      <button class="btn btn-primary btn-lg" onclick="goKonfirmasi()">Bayar →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: KONFIRMASI PEMBAYARAN
+═══════════════════════════════════════ -->
+<div id="s-konfirmasi" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-order')">←</button>
+    <div class="topbar-title">Konfirmasi Pembayaran</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="pay-section">
+      <div class="pay-summary-box">
+        <div class="osb-title mb-16">Pesanan Anda</div>
+        <div class="osb-row"><span>Atas Nama</span><span class="fw-900">User</span></div>
+        <div id="konfirm-detail-lines"></div>
+        <div class="osb-row osb-total"><span>Total Pesanan</span><span id="konfirm-total-disp">Rp 6.000</span></div>
+      </div>
+
+      <div style="font-size:14px;font-weight:800;margin-bottom:12px;color:var(--dark);">Pilih Metode Pembayaran</div>
+      <div class="pmethod-list">
+        <button class="pmethod-btn active" id="pm-gopay" onclick="selPay('gopay')">
+          <span class="pmethod-icon">💚</span>
+          <span>GO PAY</span>
+          <span class="pmethod-check">✓</span>
+        </button>
+        <button class="pmethod-btn" id="pm-transfer" onclick="selPay('transfer')">
+          <span class="pmethod-icon">🏦</span>
+          <span>TRANSFER BANK</span>
+          <span class="pmethod-check"></span>
+        </button>
+        <button class="pmethod-btn" id="pm-cash" onclick="selPay('cash')">
+          <span class="pmethod-icon">💵</span>
+          <span>BAYAR DI TEMPAT</span>
+          <span class="pmethod-check"></span>
+        </button>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="doBayar()">Lanjutkan Pembayaran</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: QR CODE (GOPAY)
+═══════════════════════════════════════ -->
+<div id="s-qris" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-konfirmasi')">←</button>
+    <div class="topbar-title">Konfirmasi Pembayaran</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="qr-screen-body">
+      <div class="qr-brand">GO PAY</div>
+      <div class="qr-instruction">Scan QR Code ini untuk melakukan<br>pembayaran melalui <strong>GO-PAY</strong></div>
+      <div class="qr-box">
+        <div class="qr-inner">
+          <span class="qr-bl"></span>
+          <div class="qr-center-logo">MAMAYO</div>
+        </div>
+      </div>
+      <div class="qr-timer-txt">Berlaku selama <span id="qr-timer">04:59</span></div>
+      <div class="qr-amount">
+        <div class="qr-amount-label">Total Pembayaran</div>
+        <div class="qr-amount-num" id="qr-amount-disp">Rp 6.000</div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="go('s-sukses')">Konfirmasi Sudah Bayar</button>
+      <button class="btn btn-ghost btn-lg mt-12" onclick="go('s-konfirmasi')">← Kembali</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: TRANSFER BANK
+═══════════════════════════════════════ -->
+<div id="s-transfer" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-konfirmasi')">←</button>
+    <div class="topbar-title">Transfer Bank</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div style="padding:14px 16px 4px;font-size:13px;font-weight:700;color:var(--mid);">Pilih Bank Tujuan</div>
+    <div class="bank-grid">
+      <div class="bank-tile selected" onclick="selBank(this,'BCA','1234567890')">
+        <div class="bank-logo bl-bca">BCA</div><span>BCA</span>
+      </div>
+      <div class="bank-tile" onclick="selBank(this,'BNI','9876543210')">
+        <div class="bank-logo bl-bni">BNI</div><span>BNI</span>
+      </div>
+      <div class="bank-tile" onclick="selBank(this,'BRI','1122334455')">
+        <div class="bank-logo bl-bri">BRI</div><span>BRI</span>
+      </div>
+      <div class="bank-tile" onclick="selBank(this,'BSI','5566778899')">
+        <div class="bank-logo bl-bsi">BSI</div><span>BSI</span>
+      </div>
+      <div class="bank-tile" onclick="selBank(this,'GoPay','gopay_mamayo')">
+        <div class="bank-logo bl-gopay">GP</div><span>GoPay</span>
+      </div>
+      <div class="bank-tile" onclick="selBank(this,'Dana','dana_mamayo')">
+        <div class="bank-logo bl-dana">DA</div><span>Dana</span>
+      </div>
+    </div>
+
+    <div class="transfer-info-box">
+      <div class="tib-header">🏦 <span id="sel-bank-name">Bank BCA</span></div>
+      <div class="tib-row">
+        <span class="tib-label">No. Rekening</span>
+        <span class="tib-val"><span id="sel-rek">1234567890</span><button class="copy-btn" onclick="toast('Nomor rekening disalin!')">Salin</button></span>
+      </div>
+      <div class="tib-row">
+        <span class="tib-label">Atas Nama</span>
+        <span class="tib-val">MAMAYO FOOD</span>
+      </div>
+      <div class="tib-row">
+        <span class="tib-label">Nominal</span>
+        <span class="tib-val" style="color:var(--orange)" id="tf-amount">Rp 6.000<button class="copy-btn" onclick="toast('Nominal disalin!')">Salin</button></span>
+      </div>
+      <div class="tib-row">
+        <span class="tib-label">Batas Bayar</span>
+        <span class="tib-val" style="color:var(--red)" id="tf-deadline">—</span>
+      </div>
+    </div>
+
+    <div class="petunjuk-box">
+      <div class="petunjuk-title">Petunjuk Pembayaran</div>
+      <div class="petunjuk-step"><div class="step-num">1</div> Buka aplikasi mobile banking atau ATM Anda</div>
+      <div class="petunjuk-step"><div class="step-num">2</div> Pilih Transfer dan masukkan nomor rekening di atas</div>
+      <div class="petunjuk-step"><div class="step-num">3</div> Pastikan nominal sesuai dan selesaikan transfer</div>
+    </div>
+
+    <div class="section-pad" style="display:flex;gap:10px;">
+      <button class="btn btn-primary btn-lg" style="flex:2" onclick="go('s-sukses')">Konfirmasi Transfer</button>
+      <button class="btn btn-ghost btn-md" onclick="go('s-konfirmasi')">Batal</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: PEMBAYARAN BERHASIL
+═══════════════════════════════════════ -->
+<div id="s-sukses" class="screen">
+  <div class="topbar">
+    <div class="topbar-title">Status Pembayaran</div>
+  </div>
+  <div class="success-screen-body">
+    <div class="success-icon-big">✅</div>
+    <div class="success-title">Pembayaran Berhasil!</div>
+    <div class="success-subtitle">
+      Pesanan Anda sedang diproses.<br>
+      Terima kasih sudah memesan di Mamayo! 🥟<br><br>
+      <span style="color:var(--orange);font-weight:800;" id="sukses-total">Total: Rp 6.000</span>
+    </div>
+    <button class="btn btn-primary btn-lg" onclick="go('s-home')">Kembali ke Halaman Utama</button>
+    <button class="btn btn-outline btn-lg mt-12" onclick="go('s-riwayat')">Lihat Riwayat Pesanan</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: USER PROFILE
+═══════════════════════════════════════ -->
+<div id="s-profil-user" class="screen">
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="profile-screen">
+      <div class="profile-top-card">
+        <div class="profile-avatar">👤</div>
+        <div>
+          <div class="profile-name">Username123</div>
+          <div class="profile-role">Pelanggan · Surabaya</div>
+        </div>
+        <button class="profile-edit-btn" onclick="showSubProfile('edit')">Ubah Profil</button>
+      </div>
+
+      <!-- Default: menu list -->
+      <div id="profil-menu" class="profile-menu-list">
+        <div class="profile-menu-item active" onclick="showSubProfile('edit')">
+          <span class="pmi-icon">👤</span> Profil Saya <span class="pmi-arrow">›</span>
+        </div>
+        <div class="profile-menu-item" onclick="go('s-riwayat')">
+          <span class="pmi-icon">📋</span> Pesanan Saya <span class="pmi-arrow">›</span>
+        </div>
+        <div class="profile-menu-item" onclick="toast('Fitur bantuan segera hadir')">
+          <span class="pmi-icon">❓</span> Bantuan <span class="pmi-arrow">›</span>
+        </div>
+        <div class="profile-menu-item" style="color:var(--red)" onclick="go('s-masuk')">
+          <span class="pmi-icon">🚪</span> Keluar
+        </div>
+      </div>
+
+      <!-- Edit Sub screen -->
+      <div id="profil-edit" style="display:none">
+        <div class="profile-sub">
+          <h3>Edit Profil</h3>
+          <div class="photo-upload" onclick="toast('Pilih foto dari galeri')">
+            <div class="pu-avatar">👤</div>
+            <div>
+              <div class="pu-label">Pilih Gambar</div>
+              <div class="pu-sub">JPG atau PNG, maks. 2MB</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-input" value="Username123">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nama</label>
+            <input type="text" class="form-input" value="John User">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" value="user123@gmail.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">No. HP</label>
+            <input type="text" class="form-input" value="081xxxxxxxxx">
+          </div>
+          <button class="btn btn-primary btn-lg" onclick="toast('Profil disimpan ✅'); showSubProfile('menu')">Simpan</button>
+          <button class="btn btn-ghost btn-lg mt-12" onclick="showSubProfile('menu')">← Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bn-item" onclick="go('s-home')"><span class="bn-icon">🏠</span>Beranda</button>
+    <button class="bn-item" onclick="goOrder()"><span class="bn-icon">🛒</span>Pesan</button>
+    <button class="bn-item active"><span class="bn-icon">👤</span>Profil</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: RIWAYAT PESANAN (USER)
+═══════════════════════════════════════ -->
+<div id="s-riwayat" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-profil-user')">←</button>
+    <div class="topbar-title">Riwayat Pesanan</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="riwayat-list">
+      <div class="riwayat-card">
+        <div class="rw-img">🥟</div>
+        <div class="rw-info">
+          <div class="rw-name">Pesanan 001</div>
+          <div class="rw-date">28 · 3 · 2026</div>
+          <span class="badge badge-green">Selesai</span>
+        </div>
+        <div class="rw-right"><div class="rw-price">Rp 10.000</div></div>
+      </div>
+      <div class="riwayat-card">
+        <div class="rw-img">🌶️</div>
+        <div class="rw-info">
+          <div class="rw-name">Pesanan 002</div>
+          <div class="rw-date">28 · 3 · 2026</div>
+          <span class="badge badge-yellow">Diproses</span>
+        </div>
+        <div class="rw-right"><div class="rw-price">Rp 10.000</div></div>
+      </div>
+      <div class="riwayat-card">
+        <div class="rw-img">🍫</div>
+        <div class="rw-info">
+          <div class="rw-name">Pesanan 003</div>
+          <div class="rw-date">28 · 3 · 2026</div>
+          <span class="badge badge-yellow">Diproses</span>
+        </div>
+        <div class="rw-right"><div class="rw-price">Rp 10.000</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: ADMIN PROFIL
+═══════════════════════════════════════ -->
+<div id="s-admin-profil" class="screen">
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="profile-screen">
+      <div class="profile-top-card">
+        <div class="profile-avatar">🛠️</div>
+        <div>
+          <div class="profile-name">Admin123</div>
+          <div class="profile-role">Administrator · Mamayo</div>
+        </div>
+        <button class="profile-edit-btn" onclick="showSubAdmin('edit')">Ubah Profil</button>
+      </div>
+      <div id="admin-menu" class="profile-menu-list">
+        <div class="profile-menu-item" onclick="showSubAdmin('edit')">
+          <span class="pmi-icon">👤</span> Profil <span class="pmi-arrow">›</span>
+        </div>
+        <div class="profile-menu-item active" onclick="go('s-admin-toko')">
+          <span class="pmi-icon">🏪</span> Kelola Toko <span class="pmi-arrow">›</span>
+        </div>
+        <div class="profile-menu-item" style="color:var(--red)" onclick="go('s-masuk')">
+          <span class="pmi-icon">🚪</span> Keluar
+        </div>
+      </div>
+      <div id="admin-edit" style="display:none">
+        <div class="profile-sub">
+          <h3>Edit Profil Admin</h3>
+          <div class="photo-upload" onclick="toast('Pilih foto dari galeri')">
+            <div class="pu-avatar">🛠️</div>
+            <div><div class="pu-label">Pilih Gambar</div><div class="pu-sub">JPG atau PNG, maks. 2MB</div></div>
+          </div>
+          <div class="form-group"><label class="form-label">Username</label><input type="text" class="form-input" value="Admin123"></div>
+          <div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input" value="John Admin"></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" value="admin@mamayo.com"></div>
+          <div class="form-group"><label class="form-label">No. HP</label><input type="text" class="form-input" value="081xxxxxxxxx"></div>
+          <button class="btn btn-primary btn-lg" onclick="toast('Profil disimpan ✅'); showSubAdmin('menu')">Simpan</button>
+          <button class="btn btn-ghost btn-lg mt-12" onclick="showSubAdmin('menu')">← Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bn-item" onclick="go('s-home')"><span class="bn-icon">🏠</span>Beranda</button>
+    <button class="bn-item" onclick="go('s-admin-toko')"><span class="bn-icon">🏪</span>Toko</button>
+    <button class="bn-item active"><span class="bn-icon">⚙️</span>Admin</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: ADMIN KELOLA TOKO
+═══════════════════════════════════════ -->
+<div id="s-admin-toko" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-admin-profil')">←</button>
+    <div class="topbar-title">Kelola Toko</div>
+    <div class="topbar-icon" onclick="go('s-admin-tambah')">➕</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <!-- Status toko toggle -->
+    <div class="admin-status-bar">
+      <div>
+        <div class="asb-label">Status Toko</div>
+        <div class="asb-sub">Atur buka/tutup toko</div>
+      </div>
+      <div class="toggle-wrap">
+        <span class="toggle-status" style="color:var(--red);font-size:12px;" id="toko-tutup-lbl">Tutup</span>
+        <div class="toggle on" id="tokoToggle" onclick="toggleToko()"></div>
+        <span class="toggle-status" style="color:var(--green);font-size:12px;" id="toko-buka-lbl">Buka</span>
+      </div>
+    </div>
+
+    <div class="add-product-bar">
+      <button class="btn btn-primary btn-sm" onclick="go('s-admin-tambah')">+ Tambah Produk</button>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead><tr><th>No</th><th>Nama Produk</th><th>Stok</th><th>Gambar</th><th>Aksi</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Risol Mayo</td>
+            <td><span class="badge badge-green">Tersedia</span></td>
+            <td>🥟</td>
+            <td><div class="action-pair"><button class="act-edit">edit</button><button class="act-del" onclick="showModal('Risol Mayo')">hapus</button></div></td>
+          </tr>
+          <tr>
+            <td>2</td><td>Risol Reguler</td>
+            <td><span class="badge badge-yellow">Menipis</span></td>
+            <td>🥟</td>
+            <td><div class="action-pair"><button class="act-edit">edit</button><button class="act-del" onclick="showModal('Risol Reguler')">hapus</button></div></td>
+          </tr>
+          <tr>
+            <td>3</td><td>Risol Mayo</td>
+            <td><span class="badge badge-red">Kosong</span></td>
+            <td>🥟</td>
+            <td><div class="action-pair"><button class="act-edit">edit</button><button class="act-del" onclick="showModal('Risol Mayo')">hapus</button></div></td>
+          </tr>
+          <tr>
+            <td>4</td><td>Risol Beef</td>
+            <td><span class="badge badge-red">Kosong</span></td>
+            <td>🥩</td>
+            <td><div class="action-pair"><button class="act-edit">edit</button><button class="act-del" onclick="showModal('Risol Beef')">hapus</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <button class="bn-item" onclick="go('s-home')"><span class="bn-icon">🏠</span>Beranda</button>
+    <button class="bn-item active"><span class="bn-icon">🏪</span>Toko</button>
+    <button class="bn-item" onclick="go('s-admin-profil')"><span class="bn-icon">⚙️</span>Admin</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  SCREEN: ADMIN TAMBAH PRODUK
+═══════════════════════════════════════ -->
+<div id="s-admin-tambah" class="screen">
+  <div class="topbar">
+    <button class="topbar-back" onclick="go('s-admin-toko')">←</button>
+    <div class="topbar-title">Tambah Produk</div>
+  </div>
+  <div class="scroll-body" style="padding-bottom:80px;">
+    <div class="tambah-section">
+      <h3>Data Produk</h3>
+      <div class="form-group">
+        <label class="form-label">Nama Produk</label>
+        <input type="text" class="form-input" placeholder="Contoh: Risol Mentai">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stok</label>
+        <select class="form-input">
+          <option>Tersedia</option>
+          <option>Menipis</option>
+          <option>Kosong</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Gambar Produk</label>
+        <div class="upload-box" onclick="toast('Pilih file gambar')">
+          <div class="ub-icon">📷</div>
+          <div class="ub-text">Klik untuk upload foto produk<br><small>PNG, JPG maks. 2MB</small></div>
+        </div>
+        <div class="file-input-row">
+          <label class="file-label" onclick="toast('Pilih file')">Choose file</label>
+          <span style="font-size:13px;color:var(--mid)">Belum ada file dipilih</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg mt-16" onclick="toast('Produk berhasil ditambahkan ✅'); go('s-admin-toko')">Simpan Produk</button>
+      <button class="btn btn-ghost btn-lg mt-12" onclick="go('s-admin-toko')">Batal</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  MODAL: DELETE CONFIRM
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="delete-modal" onclick="closeModal(event)">
+  <div class="modal-sheet">
+    <div class="modal-icon">🗑️</div>
+    <div class="modal-title">Hapus Produk?</div>
+    <div class="modal-desc">Apakah Anda yakin ingin menghapus <strong id="modal-product-name">produk ini</strong>? Tindakan ini tidak dapat dibatalkan.</div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost btn-md" onclick="closeModal()">TIDAK</button>
+      <button class="btn btn-danger btn-md" onclick="doHapus()">YA, HAPUS</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- NAV CONTROLLER (hidden) -->
+<div id="nav-demo" style="display:none"></div>
+
+<div style="position:fixed;bottom:0;left:0;right:0;background:#1C1C1E;padding:10px 16px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;z-index:9999;box-shadow:0 -2px 20px rgba(0,0,0,.3);">
+  <span style="color:#666;font-size:11px;display:flex;align-items:center;margin-right:4px;font-family:sans-serif">Demo:</span>
+  <button onclick="go('s-home')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">🏠 Home</button>
+  <button onclick="go('s-daftar')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">📝 Daftar</button>
+  <button onclick="go('s-masuk')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">🔑 Masuk</button>
+  <button onclick="goOrder()" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">🛒 Pesan</button>
+  <button onclick="go('s-konfirmasi')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">💳 Konfirmasi</button>
+  <button onclick="go('s-qris')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">📱 QRIS</button>
+  <button onclick="go('s-transfer')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">🏦 Transfer</button>
+  <button onclick="go('s-sukses')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">✅ Sukses</button>
+  <button onclick="go('s-profil-user')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">👤 Profil</button>
+  <button onclick="go('s-riwayat')" style="background:#333;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">📋 Riwayat</button>
+  <button onclick="go('s-admin-profil')" style="background:#F47C20;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">⚙️ Admin</button>
+  <button onclick="go('s-admin-toko')" style="background:#F47C20;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">🏪 Toko</button>
+  <button onclick="go('s-admin-tambah')" style="background:#F47C20;color:#fff;border:none;border-radius:6px;padding:5px 11px;font-size:11px;cursor:pointer;font-family:sans-serif">➕ Tambah</button>
+</div>
+
+</div><!-- .app-shell -->
+
+<script src="script.js"></script>
+</body>
+</html>
