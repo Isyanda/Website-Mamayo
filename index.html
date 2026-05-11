@@ -47,7 +47,9 @@
     </div>
     <div class="menu-grid-2col">
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-img">
+           <img src="Rectangle 96.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Mentai</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -55,7 +57,9 @@
         </div>
       </div>
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-img">
+          <img src="Rectangle 98.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Mayo</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -63,7 +67,9 @@
         </div>
       </div>
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🌶️</div>
+        <div class="menu-card-img">
+          <img src="Rectangle 100.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Mercon</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -71,7 +77,9 @@
         </div>
       </div>
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🥟</div>
+        <div class="menu-card-img">
+          <img src="Rectangle 97.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Reguler</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -79,7 +87,9 @@
         </div>
       </div>
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🥩</div>
+        <div class="menu-card-img">
+          <img src="Rectangle 99.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Beef</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -87,7 +97,9 @@
         </div>
       </div>
       <div class="menu-card" onclick="goOrder()">
-        <div class="menu-card-img">🍫</div>
+        <div class="menu-card-img">
+          <img src="Rectangle 101.png" alt="Dumpling">
+        </div>
         <div class="menu-card-body">
           <div class="menu-card-name">Risol Piscok</div>
           <div class="menu-card-price">Rp 2.000</div>
@@ -118,28 +130,28 @@
     <div class="form-group">
       <label class="form-label">Nama Lengkap</label>
       <div class="input-wrap">
-        <span class="input-prefix">👤</span>
+        <span class="input-prefix"></span>
         <input type="text" class="form-input" placeholder="Nama Lengkap">
       </div>
     </div>
     <div class="form-group">
       <label class="form-label">Email</label>
       <div class="input-wrap">
-        <span class="input-prefix">✉️</span>
+        <span class="input-prefix"></span>
         <input type="email" class="form-input" placeholder="email@contoh.com">
       </div>
     </div>
     <div class="form-group">
       <label class="form-label">Password</label>
       <div class="input-wrap">
-        <span class="input-prefix">🔒</span>
+        <span class="input-prefix"></span>
         <input type="password" class="form-input" placeholder="••••••••">
       </div>
     </div>
     <div class="form-group">
       <label class="form-label">OTP</label>
       <div class="input-wrap">
-        <span class="input-prefix">📱</span>
+        <span class="input-prefix"></span>
         <input type="text" class="form-input" placeholder="Kode OTP">
       </div>
     </div>
@@ -159,14 +171,14 @@
     <div class="form-group">
       <label class="form-label">Email</label>
       <div class="input-wrap">
-        <span class="input-prefix">✉️</span>
+        <span class="input-prefix"></span>
         <input type="email" class="form-input" placeholder="email@contoh.com">
       </div>
     </div>
     <div class="form-group">
       <label class="form-label">Password</label>
       <div class="input-wrap">
-        <span class="input-prefix">🔒</span>
+        <span class="input-prefix"></span>
         <input type="password" class="form-input" placeholder="••••••••">
       </div>
     </div>
@@ -295,13 +307,15 @@
         <div id="konfirm-detail-lines"></div>
         <div class="osb-row osb-total"><span>Total Pesanan</span><span id="konfirm-total-disp">Rp 6.000</span></div>
       </div>
-
       <div style="font-size:14px;font-weight:800;margin-bottom:12px;color:var(--dark);">Pilih Metode Pembayaran</div>
-      <div class="pmethod-list">
-        <button class="pmethod-btn active" id="pm-gopay" onclick="selPay('gopay')">
-          <span class="pmethod-icon">💚</span>
-          <span>GO PAY</span>
-          <span class="pmethod-check">✓</span>
+      <button class="pmethod-btn active" id="pm-gopay" onclick="selPay('gopay')">
+    
+    <div class="menu-card-img">
+        <img src="quick-response-code-indonesia-standard-qris-logo-png_seeklogo-391791.png" alt="QRIS">
+    </div>
+
+    <span>GO PAY</span>
+    <span class="pmethod-check">✓</span>
         </button>
         <button class="pmethod-btn" id="pm-transfer" onclick="selPay('transfer')">
           <span class="pmethod-icon">🏦</span>
